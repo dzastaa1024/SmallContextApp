@@ -4,7 +4,7 @@ import Button from "./Button";
 
 export default function UserCreate() {
   return (
-    <div>
+    <div className="ui form">
       <Field />
       <Button />
     </div>
