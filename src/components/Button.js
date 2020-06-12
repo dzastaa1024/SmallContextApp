@@ -7,19 +7,24 @@ export default class Button extends Component {
   // it have to be exatly contextType
   // using keyword static we are adding the property directly to the class itself
 
+  renderButton(color) {
+    return (
+      <button className={`ui button ${color}`}>
+        <LanguageContext.Consumer>
+          {(language) => this.renderSubmit(language)}
+        </LanguageContext.Consumer>
+      </button>
+    );
+  }
+
+  renderSubmit(language) {
+    return language === "english" ? "Submit" : "Voorleggen";
+  }
+
   render() {
-    // console.log(this.context) => english, because in LanguageContext file we declare english inside in createContext
-    // const text = this.context === "english" ? "Submit" : "Voorleggen";
     return (
       <ColorContext.Consumer>
-        {(color) => (
-          <button className={`ui button ${color}`}>
-            {/* one child inside */}
-            <LanguageContext.Consumer>
-              {(value) => (value === "english" ? "Submit" : "Voorleggen")}
-            </LanguageContext.Consumer>
-          </button>
-        )}
+        {(color) => this.renderButton(color)}
       </ColorContext.Consumer>
     );
   }
