@@ -3,10 +3,6 @@ import LanguageContext from "../context/LanguageContext";
 import ColorContext from "../context/ColorContext";
 
 export default class Button extends Component {
-  // static contextType = LanguageContext;
-  // it have to be exatly contextType
-  // using keyword static we are adding the property directly to the class itself
-
   renderButton(color) {
     return (
       <button className={`ui button ${color}`}>
@@ -29,6 +25,3 @@ export default class Button extends Component {
     );
   }
 }
-
-// it is possible use this as well:
-// Button.contextType = LanguageContext;
